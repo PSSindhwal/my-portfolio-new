@@ -3407,3 +3407,12 @@ html:has(.brand-page) {
     padding: 15px 2%;
     margin-bottom: 0px;
 }
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.digital-logo a {
+    color: inherit;
+    text-decoration: none;
+}

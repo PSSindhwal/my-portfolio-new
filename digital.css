@@ -933,3 +933,12 @@ body {
 .digital-video {
     object-fit: cover;
 }
+.logo a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.digital-logo a {
+    color: inherit;
+    text-decoration: none;
+}

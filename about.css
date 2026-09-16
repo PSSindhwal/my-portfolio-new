@@ -1,0 +1,518 @@
+/* ========================================
+   SOLANO GOTHIC FONTS
+   ======================================== */
+
+@font-face {
+    font-family: "Solano Gothic Bold";
+    src: url("fonts/SolanoGothicMVB-BdCap.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Solano Gothic Semibold";
+    src: url("fonts/SolanoGothicMVB-SbCap.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Solano Gothic Stencil";
+    src: url("fonts/SolanoGothicMVB-StencilCap.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+/* ========================================
+   RESET
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Solano Gothic Semibold", sans-serif;
+    background: #ffffff;
+    color: #111111;
+
+    animation: portfolioPageIn 0.8s ease-out both;
+}
+
+
+/* ========================================
+   PAGE LOAD
+   ======================================== */
+
+@keyframes portfolioPageIn {
+
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ========================================
+   HEADER
+   ======================================== */
+
+header {
+    height: 75px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #303140;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+
+/* PRITAM SINGH */
+
+.logo {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-family: "Solano Gothic Semibold", sans-serif;
+    font-size: 18px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+.logo:hover {
+    color: #f9a817;
+    transform: scale(1.05);
+}
+
+
+/* NAVIGATION */
+
+nav {
+    display: flex;
+    align-items: center;
+    gap: 35px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+
+    font-family: "Solano Gothic Semibold", sans-serif;
+    font-size: 15px;
+
+    transition:
+        color 0.3s ease,
+        transform 0.3s ease;
+}
+
+nav a:hover {
+    color: #f9a817;
+    transform: scale(1.10);
+}
+
+
+/* ACTIVE ABOUT */
+
+nav a.active {
+    color: #f9a817;
+}
+
+
+/* ========================================
+   ABOUT HERO
+   ======================================== */
+
+.about-hero {
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.about-hero img {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   DESIGN / LEADERSHIP / INNOVATION
+   ======================================== */
+
+.about-journey {
+    width: 100%;
+
+    background: #ffffff;
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+
+    align-items: center;
+
+    padding: 28px 8% 30px;
+
+    border-top: 1px solid #ea3359;
+}
+
+
+.journey-item {
+    text-align: left;
+}
+
+.journey-item:nth-child(2) {
+    text-align: left;
+}
+
+.journey-item:nth-child(3) {
+    text-align: left;
+}
+
+
+/* MAIN WORDS */
+
+.journey-item h2 {
+    margin: 0;
+
+    font-family: Georgia, "Times New Roman", serif;
+
+    font-size: clamp(38px, 3.2vw, 58px);
+
+    font-weight: 700;
+
+    line-height: 0.95;
+
+    color: #111111;
+}
+
+
+/* SUBTEXT */
+
+.journey-item p {
+    margin-top: 8px;
+
+    font-family: "Solano Gothic Semibold", sans-serif;
+
+    font-size: clamp(15px, 1.25vw, 22px);
+
+    line-height: 1;
+
+    color: #111111;
+}
+
+
+/* ========================================
+   BOTTOM IMAGE / STORY
+   ======================================== */
+
+.about-story {
+    position: relative;
+
+    width: 100%;
+
+    overflow: hidden;
+
+    line-height: 0;
+}
+
+
+.about-bottom-image {
+    width: 100%;
+    height: auto;
+
+    display: block;
+
+    object-fit: cover;
+}
+
+
+/* ========================================
+   STORY TEXT OVER IMAGE
+   ======================================== */
+
+.about-story-text {
+    position: absolute;
+
+    top: 7%;
+    left: 8%;
+
+    width: 84%;
+    max-width: none;
+
+    color: #ffffff;
+
+    line-height: 1.35;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 8%;
+    align-items: start;
+}
+
+.about-story-text p {
+    margin-bottom: 24px;
+
+    font-family: "Solano Gothic Semibold", sans-serif;
+
+    font-size: clamp(15px, 1.15vw, 21px);
+
+    line-height: 1.4;
+
+    color: #ffffff;
+}
+
+.about-story-text p:nth-child(1),
+.about-story-text p:nth-child(2) {
+    grid-column: 1;
+}
+
+.about-story-text p:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+}
+
+
+.about-story-text p {
+    margin-bottom: 24px;
+
+    font-family: "Solano Gothic Semibold", sans-serif;
+
+    font-size: clamp(15px, 1.15vw, 21px);
+
+    line-height: 1.4;
+
+    color: #ffffff;
+}
+
+
+/* ========================================
+   SOCIAL / CONTACT ICONS
+   ======================================== */
+
+.about-social {
+    position: absolute;
+
+    right: 5%;
+    bottom: 4%;
+
+    display: flex;
+    align-items: center;
+
+    gap: 10px;
+
+    z-index: 10;
+}
+
+
+.social-icon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.90);
+
+    color: #303140;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    text-decoration: none;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 23px;
+    font-weight: 700;
+
+    transition:
+        transform 0.3s ease,
+        background 0.3s ease,
+        color 0.3s ease;
+}
+
+
+.social-icon span {
+    line-height: 1;
+}
+
+
+.social-icon:hover {
+    transform: scale(1.15);
+
+    background: #f9a817;
+
+    color: #ffffff;
+}
+
+
+/* LinkedIn */
+
+.social-icon:nth-child(3) {
+    font-size: 18px;
+    font-family: Arial, sans-serif;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 800px) {
+
+    header {
+        height: 65px;
+        padding: 0 20px;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    nav a {
+        font-size: 12px;
+    }
+
+
+    /* JOURNEY */
+
+    .about-journey {
+        grid-template-columns: 1fr;
+
+        gap: 25px;
+
+        padding: 35px 25px;
+    }
+
+    .journey-item,
+    .journey-item:nth-child(2),
+    .journey-item:nth-child(3) {
+        text-align: left;
+    }
+
+
+    /* STORY */
+
+    .about-story {
+        background: #303140;
+    }
+
+    .about-bottom-image {
+        min-height: 650px;
+
+        object-fit: cover;
+    }
+
+    .about-story-text {
+        top: 8%;
+        left: 25px;
+
+        width: calc(100% - 50px);
+        max-width: none;
+    }
+
+    .about-story-text p {
+        font-size: 15px;
+        line-height: 1.4;
+
+        margin-bottom: 20px;
+    }
+
+
+    /* ICONS */
+
+    .about-social {
+        right: 20px;
+        bottom: 20px;
+
+        gap: 7px;
+    }
+
+    .social-icon {
+        width: 40px;
+        height: 40px;
+
+        font-size: 19px;
+    }
+
+}
+.instagram-svg {
+    width: 28px;
+    height: 28px;
+    display: block;
+}
+/* SOCIAL ICON HOVER COLORS */
+
+.about-social .social-icon:nth-child(1):hover {
+    color: #ade44e;
+}
+
+.about-social .social-icon:nth-child(2):hover {
+    color: #ff3b30;
+}
+
+.about-social .social-icon:nth-child(3):hover {
+    color: #39a9ff;
+}
+
+.about-social .social-icon:nth-child(4):hover {
+    color: #ade44e;
+}
+
+.about-social .social-icon:nth-child(5):hover {
+    color: #39a9ff;
+}
+/* DESIGN / LEADERSHIP / INNOVATION HOVER */
+
+.journey-item h2,
+.journey-item p {
+    transition: color 0.35s ease, transform 0.35s ease;
+}
+
+/* DESIGN */
+.journey-item:nth-child(1):hover h2,
+.journey-item:nth-child(1):hover p {
+    color: #9443f1;
+    transform: scale(1.08);
+}
+
+/* LEADERSHIP */
+.journey-item:nth-child(2):hover h2,
+.journey-item:nth-child(2):hover p {
+    color: #ade44e;
+    transform: scale(1.08);
+}
+
+/* INNOVATION */
+.journey-item:nth-child(3):hover h2,
+.journey-item:nth-child(3):hover p {
+    color: #ea3359;
+    transform: scale(1.08);
+}

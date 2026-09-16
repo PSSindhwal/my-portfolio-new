@@ -1,0 +1,3409 @@
+@font-face {
+    font-family: "Solano Gothic Bold";
+    src: url("fonts/SolanoGothicMVB-BdCap.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Solano Gothic Semibold";
+    src: url("fonts/SolanoGothicMVB-SbCap.otf") format("opentype");
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Solano Gothic Stencil";
+    src: url("fonts/SolanoGothicMVB-StencilCap.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+html,
+body {
+    font-family: "Solano Gothic Semibold", sans-serif;
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "Solano Gothic Semibold";
+    background: #303140;
+    color: #ffffff;
+}
+
+
+/* ========================================
+   HEADER
+======================================== */
+
+header {
+    height: 75px;
+    padding: 0 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    background: #303140;
+
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+    text-decoration: none;
+}
+nav {
+    display: flex;
+    gap: 35px;
+}
+
+nav a {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 15px;
+}
+
+nav a:hover {
+    color: #f9a817;
+}
+
+
+/* HERO */
+
+.hero {
+    width: 100%;
+    background: #ffffff;
+    color: #111111;
+    overflow: hidden;
+}
+
+.hero-canvas {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+}
+.hero {
+    height: calc(100vh - 70px);
+}
+
+.hero-canvas {
+    height: 100%;
+    aspect-ratio: auto;
+}
+
+/* ALL HERO IMAGES */
+
+.floating-image {
+    position: absolute;
+    opacity: 0;
+
+    --mouse-x: 0px;
+    --mouse-y: 0px;
+
+    animation:
+        heroEntrance 1.2s cubic-bezier(.22, .61, .36, 1) forwards,
+        heroFloat 8s ease-in-out 1.2s infinite;
+
+    will-change: transform, scale;
+    z-index: 5;
+
+    transition: scale 0.45s ease;
+}
+
+.floating-image img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+
+/* HOVER ZOOM */
+
+.floating-image:hover {
+    scale: 1.18;
+    z-index: 50;
+}
+
+
+/* ================================================= */
+/* TOP ROW */
+/* ================================================= */
+
+
+/* 1 — TOP LEFT */
+/* ================================================= */
+/* HERO IMAGE POSITIONS — 1920 × 1080 MASTER */
+/* ================================================= */
+
+.image-1 {
+    width: 6%;
+    top: 0%;
+    left: 1%;
+}
+
+.image-2 {
+    width: 14%;
+    top: 7%;
+    left: 14%;
+}
+
+.image-3 {
+    width: 7%;
+    top: 3%;
+    left: 31%;
+}
+
+.image-4 {
+    width: 9%;
+    top: calc(8% + 110px);
+    left: 40%;
+}
+
+.image-5 {
+    width: 6%;
+    top: 2.5%;
+    left: 51%;
+}
+
+.image-6 {
+    width: 6%;
+    top: 22%;
+    left: 60%;
+}
+
+.image-7 {
+    width: 28%;
+    top: 4%;
+    right: 5%;
+}
+
+.image-8 {
+    width: 6.5%;
+    top: 28%;
+    right: 13%;
+}
+
+
+/* MIDDLE LEFT */
+
+.image-9 {
+    width: 12%;
+    top: 40%;
+    left: -1%;
+}
+
+
+/* BOTTOM LEFT → RIGHT */
+
+.image-10 {
+    width: 9%;
+    bottom: 8%;
+    left: 5%;
+}
+
+.image-11 {
+    width: 7%;
+    bottom: 22%;
+    left: 20%;
+}
+
+.image-12 {
+    width: 11%;
+    bottom: 22%;
+    left: 38%;
+}
+
+.image-13 {
+    width: 8%;
+    bottom: 2%;
+    left: 29%;
+}
+
+.image-14 {
+    width: 7%;
+    bottom: 18%;
+    left: 55%;
+}
+
+.image-15 {
+    width: 12%;
+    bottom: 4%;
+    left: 45%;
+}
+
+.image-16 {
+    width: 14%;
+    bottom: 23%;
+    left: 68%;
+}
+
+.image-17 {
+    width: 15%;
+    bottom: 7%;
+    left: 65%;
+}
+
+
+/* FAR RIGHT */
+
+.image-18 {
+    width: 7%;
+    bottom: 30%;
+    right: 4%;
+}
+
+.image-19 {
+    width: 7%;
+    bottom: 7%;
+    right: 8%;
+}
+
+
+/* ================================================= */
+/* ENTRANCE ANIMATION */
+/* ================================================= */
+
+@keyframes heroEntrance {
+
+    0% {
+        opacity: 0;
+
+        transform:
+            translate(
+                var(--start-x),
+                var(--start-y)
+            )
+            scale(.92);
+    }
+
+    100% {
+        opacity: 1;
+
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            scale(1);
+    }
+}
+
+
+/* ================================================= */
+/* CONTINUOUS MOVEMENT */
+/* ================================================= */
+
+@keyframes heroFloat {
+
+    0% {
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            translate(0, 0);
+    }
+
+    25% {
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            translate(7px, -9px);
+    }
+
+    50% {
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            translate(-6px, 7px);
+    }
+
+    75% {
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            translate(5px, 4px);
+    }
+
+    100% {
+        transform:
+            translate(
+                var(--mouse-x),
+                var(--mouse-y)
+            )
+            translate(0, 0);
+    }
+}
+
+
+/* ================================================= */
+/* CENTRAL TEXT */
+/* ================================================= */
+
+.hero-text {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    padding: 0 20px;
+
+    text-align: center;
+
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hero-text h1 {
+    font-size: clamp(55px, 7.5vw, 145px);
+    line-height: .9;
+
+    font-weight: 700;
+
+    letter-spacing: -4px;
+
+    white-space: nowrap;
+}
+
+.hero-text h2 {
+    margin-top: 22px;
+
+    font-size: clamp(13px, 1.2vw, 22px);
+
+    font-weight: 700;
+
+    letter-spacing: .3px;
+}
+
+
+/* CENTRAL HERO TEXT */
+
+.hero-text {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    padding: 0 30px;
+
+    text-align: center;
+
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hero-text h1 {
+    font-size: clamp(55px, 7vw, 115px);
+
+    line-height: .9;
+
+    font-weight: 700;
+
+    letter-spacing: -4px;
+
+    white-space: nowrap;
+}
+
+.hero-text h2 {
+    margin-top: 22px;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    letter-spacing: .3px;
+}
+
+
+/* CENTRAL HERO TEXT */
+
+.hero-text {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 100%;
+    padding: 0 40px;
+
+    text-align: center;
+
+    z-index: 20;
+    pointer-events: none;
+}
+
+.hero-text h1 {
+    font-size: clamp(60px, 7.2vw, 118px);
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -4px;
+    white-space: nowrap;
+}
+
+.hero-text h2 {
+    margin-top: 22px;
+
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.3px;
+}
+
+.hero-text {
+    position: absolute;
+
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    width: 80%;
+
+    text-align: center;
+
+    z-index: 20;
+
+    pointer-events: none;
+}
+
+.hero-text h1 {
+    font-size: clamp(55px, 9vw, 145px);
+    line-height: 0.9;
+    font-weight: 700;
+    letter-spacing: -3px;
+}
+
+.hero-text h2 {
+    margin-top: 20px;
+
+    font-size: 17px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
+/* ========================================
+   EXPERIENCE
+======================================== */
+
+/* ========================================
+   EXPERIENCE
+======================================== */
+
+.experience {
+    padding: 55px 7.2% 70px;
+    background: #303030;
+    color: #ffffff;
+}
+
+.experience > h2 {
+    margin: 0 0 45px;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 4.2vw, 82px);
+    line-height: .95;
+    letter-spacing: 0;
+}
+
+.experience-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 7%;
+}
+
+.experience-grid > div {
+    min-height: 170px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+.experience-grid strong {
+    color: #f9a817;
+    font-family: "Solano Gothic Bold";
+    font-size: clamp(42px, 3.8vw, 72px);
+    line-height: .9;
+    margin-bottom: 10px;
+}
+
+.experience-grid span {
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(18px, 1.45vw, 28px);
+    line-height: 1.15;
+}
+.experience-grid > div {
+    transition: transform 0.45s cubic-bezier(.22, .61, .36, 1);
+    transform-origin: center center;
+}
+
+.experience-grid > div:hover {
+    transform: scale(1.08);
+    position: relative;
+    z-index: 5;
+}
+
+.experience-grid > div:nth-child(1):hover strong {
+    color: #2f80ed;
+}
+
+.experience-grid > div:nth-child(2):hover strong {
+    color: #27ae60;
+}
+
+.experience-grid > div:nth-child(3):hover strong {
+    color: #e84393;
+}
+
+.experience-grid > div:nth-child(4):hover strong {
+    color: #8e44ad;
+}
+
+.experience-grid strong {
+    transition: color 0.45s ease;
+}
+.experience-images {
+    margin-top: 55px;
+    display: flex;
+    flex-direction: row;
+    gap: 24px;
+    align-items: flex-start;
+}
+
+.experience-images img {
+    width: calc((100% - 120px) / 6);
+    height: auto;
+    display: block;
+    flex: 0 0 calc((100% - 120px) / 6);
+    transition: transform 0.45s ease;
+}
+
+.experience-images img:hover {
+    transform: scale(1.12);
+}
+/* ========================================
+   HD SHOWREEL
+======================================== */
+
+.showreel {
+    background: #303140;
+    padding: 70px 60px;
+}
+
+.showreel-video {
+    width: 100%;
+}
+
+.showreel-video video {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+
+/* ========================================
+   HIGHLIGHTS
+======================================== */
+
+.highlights {
+    padding: 100px 60px;
+
+    background: #e8e8e8;
+    color: #111111;
+}
+
+.highlights > h2 {
+    margin-bottom: 60px;
+
+    font-size: 60px;
+}
+
+.highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+}
+
+.highlight-item {
+    min-height: 220px;
+
+    padding: 30px;
+
+    display: flex;
+    align-items: flex-end;
+
+    background: #f9a817;
+
+    color: #111111;
+    text-decoration: none;
+
+    transition:
+        transform 0.35s ease,
+        background 0.35s ease;
+}
+
+.highlight-item:hover {
+    transform: scale(1.035);
+    background: #ffffff;
+}
+
+.highlight-item span {
+    font-size: 24px;
+    font-weight: 700;
+}
+
+
+/* ========================================
+   CONTACT
+======================================== */
+
+.final-contact {
+    background: #262633;
+    color: #ffffff;
+    padding: 45px 6% 35px;
+    min-height: 0px;
+}
+
+.final-contact-content {
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    text-align: left;
+}
+
+.final-contact-title {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 55px;
+    margin-bottom: 25px;
+}
+
+.final-contact-title h2 {
+    margin: 0;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 5vw, 95px);
+    line-height: .95;
+    text-align: left;
+}
+
+.final-contact-message {
+    display: inline-block;
+    background: #c8c8ca;
+    color: #262633;
+    padding: 14px 32px;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(18px, 1.5vw, 28px);
+    line-height: 1.1;
+    text-align: left;
+    margin-bottom: 25px;
+}
+
+.final-contact-details {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap: 18px;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(18px, 1.5vw, 28px);
+    text-align: left;
+}
+
+/* LOADING SQUARES */
+
+.loading-squares {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.loading-squares span {
+    display: block;
+    width: 28px;
+    height: 28px;
+    opacity: 0.25;
+    animation: loadingPulse 1.8s infinite ease-in-out;
+}
+
+.loading-squares span:nth-child(1) {
+    background: #4398e8;
+    animation-delay: 0s;
+}
+
+.loading-squares span:nth-child(2) {
+    background: #a8e63d;
+    animation-delay: 0.2s;
+}
+
+.loading-squares span:nth-child(3) {
+    background: #ed3b63;
+    animation-delay: 0.4s;
+}
+
+.loading-squares span:nth-child(4) {
+    background: #f9a817;
+    animation-delay: 0.6s;
+}
+
+.loading-squares span:nth-child(5) {
+    background: #bdbdbf;
+    animation-delay: 0.8s;
+}
+
+.loading-squares span:nth-child(6) {
+    background: #ffffff;
+    animation-delay: 1s;
+}
+
+@keyframes loadingPulse {
+    0%,
+    100% {
+        opacity: 0.25;
+        transform: scale(1);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.15);
+    }
+}
+
+
+/* ========================================
+   MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+    header {
+        height: 80px;
+        padding: 0 25px;
+    }
+
+    nav {
+        gap: 18px;
+    }
+
+    .hero-canvas {
+        height: 600px;
+    }
+
+    .hero {
+        min-height: 600px;
+    }
+
+    .floating-image {
+        width: 120px !important;
+    }
+
+    .hero-text {
+        width: 90%;
+    }
+
+    .hero-text h1 {
+        font-size: 48px;
+    }
+
+    .hero-text h2 {
+        font-size: 13px;
+    }
+
+    .experience,
+    .showreel,
+    .highlights,
+    .contact {
+        padding: 60px 25px;
+    }
+
+    .experience-grid,
+    .highlights-grid {
+        grid-template-columns: 1fr 1fr;
+        gap: 25px;
+    }
+
+    .experience > h2,
+    .highlights > h2 {
+        font-size: 42px;
+    }
+
+    .contact h2 {
+        font-size: 45px;
+    }
+}
+/* =========================
+   SECTION 3 — HIGHLIGHTS
+   ========================= */
+
+.highlights {
+    display: grid;
+    grid-template-columns: repeat(20, 1fr);
+    grid-template-rows: 390px 280px;
+    gap: 16px;
+    padding: 35px 6% 8px;
+    background: #eeeeee;
+}
+
+/* LEFT COLUMN */
+
+.highlights-intro {
+    grid-column: 1 / 6;
+    grid-row: 1;
+    position: relative;
+    height: 390px;
+}
+
+.highlights-intro h2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 0;
+    font-family: "Solano Gothic Stencil";
+    font-weight: normal;
+    font-size: clamp(55px, 4.2vw, 82px);
+    line-height: .95;
+}
+
+.highlights-text {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    margin: 0;
+    background: #f9a817;
+    padding: 32px 38px;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(17px, 1.15vw, 22px);
+    line-height: 1.28;
+    color: #111111;
+}
+
+
+/* BRANDS */
+
+.highlights-brands {
+    grid-column: 6 / 14;
+    grid-row: 1;
+    height: 390px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    align-self: start;
+}
+
+.highlights-brands img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center center;
+    margin: 0;
+    transform: none;
+}
+
+
+/* ADVERT */
+
+.highlight-advert {
+    grid-column: 14 / 21;
+    grid-row: 1;
+    height: 390px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+    align-self: end;
+}
+
+.highlight-advert img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    margin: 0;
+}
+
+
+/* BOTTOM ROW */
+
+.highlight-digital {
+    grid-column: 1 / 8;
+    grid-row: 2;
+}
+
+.highlight-creative {
+    grid-column: 8 / 14;
+    grid-row: 2;
+}
+
+.highlight-brochure {
+    grid-column: 14 / 21;
+    grid-row: 2;
+}
+/* Align Highlight1.jpg with Orange Box and Advert */
+
+.highlights-brands {
+    height: 390px;
+    align-self: end;
+    overflow: hidden;
+}
+
+.highlights-brands img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center bottom;
+    margin: 0;
+}
+/* ADVERT label on Highlight4 */
+
+.highlight-advert {
+    position: relative;
+}
+
+.highlight-advert::after {
+    content: "ADVERT";
+    position: absolute;
+    left: 28px;
+    bottom: 12px;
+    color: #ffffff;
+    font-family: "Solano Gothic semibold";
+    font-size: clamp(40px, 4vw, 72px);
+    line-height: 1;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+/* BOTTOM ROW — ALL THREE EXACTLY SAME SIZE */
+
+.highlight-digital,
+.highlight-creative,
+.highlight-brochure {
+    grid-row: 2;
+    height: 250px;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+}
+
+.highlight-digital {
+    grid-column: 1 / 8;
+}
+
+.highlight-creative {
+    grid-column: 8 / 15;
+}
+
+.highlight-brochure {
+    grid-column: 15 / 21;
+}
+
+.highlight-digital img,
+.highlight-creative img,
+.highlight-brochure img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    margin: 0;
+}
+/* Bottom row labels */
+
+.highlight-digital,
+.highlight-creative,
+.highlight-brochure {
+    position: relative;
+}
+
+.highlight-digital::after {
+    content: "DIGITAL / SOCIAL MEDIA";
+}
+
+.highlight-creative::after {
+    content: "CREATIVE DIRECTION";
+}
+
+.highlight-brochure::after {
+    content: "BROCHURE / CATALOGUE";
+}
+
+.highlight-digital::after,
+.highlight-creative::after,
+.highlight-brochure::after {
+    position: absolute;
+    left: 18px;
+    bottom: 4px;
+    color: #ffffff;
+    font-family: "Solano Gothic semibold";
+    font-size: clamp(32px, 3.2vw, 60px);
+    line-height: 1;
+    letter-spacing: 1px;
+    z-index: 5;
+}
+/* =========================
+   SECTION 3 — HOVER EFFECT
+   ========================= */
+
+.highlights-intro,
+.highlights-brands,
+.highlight-advert,
+.highlight-digital,
+.highlight-creative,
+.highlight-brochure {
+    transition: transform 0.4s ease;
+    position: relative;
+    z-index: 1;
+}
+
+.highlights-intro:hover,
+.highlights-brands:hover,
+.highlight-advert:hover,
+.highlight-digital:hover,
+.highlight-creative:hover,
+.highlight-brochure:hover {
+    transform: scale(1.04);
+    z-index: 10;
+}
+/* SECTION 3 — COLOR OVERLAY ON HOVER */
+
+.highlights-intro,
+.highlights-brands,
+.highlight-advert,
+.highlight-digital,
+.highlight-creative,
+.highlight-brochure {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Color overlay */
+.highlights-intro::before,
+.highlights-brands::before,
+.highlight-advert::before,
+.highlight-digital::before,
+.highlight-creative::before,
+.highlight-brochure::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: 2;
+    pointer-events: none;
+}
+
+/* Six colors */
+
+.highlights-intro::before {
+    background: rgba(47, 128, 237, 0.55);
+}
+
+.highlights-brands::before {
+    background: rgba(142, 68, 173, 0.55);
+}
+
+.highlight-advert::before {
+    background: rgba(249, 168, 23, 0.55);
+}
+
+.highlight-digital::before {
+    background: rgba(232, 67, 147, 0.55);
+}
+
+.highlight-creative::before {
+    background: rgba(231, 76, 60, 0.55);
+}
+
+.highlight-brochure::before {
+    background: rgba(39, 174, 96, 0.55);
+}
+
+/* Show color when mouse comes over */
+
+.highlights-intro:hover::before,
+.highlights-brands:hover::before,
+.highlight-advert:hover::before,
+.highlight-digital:hover::before,
+.highlight-creative:hover::before,
+.highlight-brochure:hover::before {
+    opacity: 45;
+}
+/* =========================
+   SECTION 4 — VIDEO
+   ========================= */
+
+.video-section {
+    background: #4398e8;
+    padding: 70px 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    overflow: hidden;
+}
+
+.video-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.portfolio-video {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 110px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #111111;
+    font-size: 42px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.video-play-button:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+/* SECTION 4 + FINAL CONTACT — ONE FRAME */
+
+.section-4-final {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+
+.section-4-final .video-section,
+.section-4-final .final-contact {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+}
+/* SECTION-BY-SECTION SCROLL */
+
+html {
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+}
+
+section {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+html {
+    scroll-padding-top: 120px;
+}
+/* VIDEO + CONTACT — ONE SCREEN */
+
+.section-4-final {
+    height: calc(100vh - 75px);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+/* VIDEO + CONTACT — FIT INTO ONE FRAME */
+
+.section-4-final {
+    height: calc(100vh - 75px);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.section-4-final .video-section {
+    flex: 1;
+    min-height: 0;
+    padding: 20px 6%;
+}
+
+.section-4-final .video-wrapper {
+    height: 100%;
+    max-width: none;
+}
+
+.section-4-final .video-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.section-4-final .final-contact {
+    flex: 0 0 auto;
+}
+.final-contact-details a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+.final-contact-details a:visited {
+    color: #ffffff;
+}
+
+.final-contact-details a:hover {
+    color: #ffffff;
+}
+.final-contact-details a {
+    color: #ffffff;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.final-contact-details a:visited {
+    color: #ffffff;
+}
+
+.final-contact-details a:hover {
+    color: #39ff14;
+    transform: scale(1.12);
+}
+.work-tabs {
+    padding-left: 5%;
+}
+
+.work-tabs a {
+    display: inline-block;
+    color: #ffffff;
+    text-decoration: none;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+/* Hover zoom */
+.work-tabs a:hover {
+    transform: scale(1.10);
+}
+
+/* Clicked tab colors */
+.work-tabs a:nth-child(1).active {
+    color: red !important;
+}
+
+.work-tabs a:nth-child(2).active {
+    color: blue !important;
+}
+
+.work-tabs a:nth-child(3).active {
+    color: purple !important;
+}
+
+.work-tabs a:nth-child(4).active {
+    color: green !important;
+}
+
+.work-tabs a:nth-child(5).active {
+    color: pink !important;
+}
+.work-tabs a:hover {
+    color: inherit !important;
+    transform: scale(1.10);
+}
+.work-tabs a:nth-child(1):hover {
+    color: #bd0003 !important;
+}
+
+.work-tabs a:nth-child(2):hover {
+    color: #39A9FF !important;
+}
+
+.work-tabs a:nth-child(3):hover {
+    color: #9442f1 !important;
+}
+
+.work-tabs a:nth-child(4):hover {
+    color: #ade44e !important;
+}
+
+.work-tabs a:nth-child(5):hover {
+    color: #ea3359 !important;
+}
+/* ========================================
+   WORK PAGE — CATEGORY CONTENT
+   ======================================== */
+
+.work-page {
+    min-height: calc(100vh - 75px);
+    background: #303140;
+    padding: 25px 6% 70px;
+}
+
+/* TOP TABS */
+
+.work-tabs {
+    position: relative;
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    gap: 35px;
+    padding-left: 5%;
+    margin-bottom: 40px;
+}
+
+.work-tabs a {
+    display: inline-block;
+    position: relative;
+    z-index: 21;
+    color: #ffffff !important;
+    text-decoration: none;
+    font-size: 15px;
+    white-space: nowrap;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.work-tabs a:hover {
+    transform: scale(1.10);
+}
+
+.work-tabs a:nth-child(1):hover {
+    color: #bd0003 !important;
+}
+
+.work-tabs a:nth-child(2):hover {
+    color: #39A9FF !important;
+}
+
+.work-tabs a:nth-child(3):hover {
+    color: #9442f1 !important;
+}
+
+.work-tabs a:nth-child(4):hover {
+    color: #ade44e !important;
+}
+
+.work-tabs a:nth-child(5):hover {
+    color: #ea3359 !important;
+}
+
+
+/* ========================================
+   MAIN CATEGORY PANEL
+   ======================================== */
+
+.work-content {
+    background: #eeeeee;
+    color: #111111;
+    padding: 18px 40px;
+}
+
+
+/* ========================================
+   EACH CATEGORY ROW
+   ======================================== */
+
+.work-row {
+    min-height: 125px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 18px 0;
+    border-bottom: 2px solid #bdbdbd;
+}
+
+.work-row:last-child {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   LEFT SIDE
+   ======================================== */
+
+.work-row-left {
+    width: 48%;
+}
+
+.work-row-left h2 {
+    margin: 0 0 14px;
+    color: #111111;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(30px, 2.5vw, 48px);
+    line-height: 1;
+}
+
+
+/* ========================================
+   EXPERIENCE LABEL
+   ======================================== */
+
+.work-experience {
+    display: inline-block;
+    padding: 6px 10px;
+    color: #ffffff;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(17px, 1.4vw, 25px);
+    line-height: 1;
+}
+
+
+/* EXACT TAB COLORS */
+
+.red {
+    background: #bd0003;
+}
+
+.blue {
+    background: #39A9FF;
+}
+
+.purple {
+    background: #9442f1;
+}
+
+.green {
+    background: #ade44e;
+}
+
+.pink {
+    background: #ea3359;
+}
+
+
+/* ========================================
+   RIGHT SIDE
+   ======================================== */
+
+.work-row-right {
+    width: 52%;
+    color: #111111;
+    text-align: right;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.15vw, 21px);
+    line-height: 1.55;
+}
+
+
+/* RIGHT-SIDE CATEGORY COLORS */
+
+.blue-text {
+    color: #39A9FF;
+}
+
+.purple-text {
+    color: #9442f1;
+}
+
+.green-text {
+    color: #ade44e;
+}
+
+.pink-text {
+    color: #ea3359;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 700px) {
+
+    .work-page {
+        padding: 25px 20px 50px;
+    }
+
+    .work-tabs {
+        padding-left: 0;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+
+    .work-content {
+        padding: 15px 20px;
+    }
+
+    .work-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .work-row-left,
+    .work-row-right {
+        width: 100%;
+    }
+
+    .work-row-right {
+        text-align: left;
+    }
+}
+/* WORK PAGE — NATURAL SCROLL */
+
+html:has(.work-page-body) {
+    scroll-snap-type: none;
+    scroll-padding-top: 75px;
+}
+
+html:has(.work-page-body) section {
+    scroll-snap-align: none;
+    scroll-snap-stop: normal;
+}
+/* ========================================
+   WORK PAGE
+   ======================================== */
+
+.work-page {
+    min-height: calc(100vh - 75px);
+    background: #303140;
+    padding: 10px 6% 70px;
+}
+
+
+/* ========================================
+   WORK TABS
+   ======================================== */
+
+.work-tabs {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 0 2%;
+    margin-bottom: 45px;
+}
+
+.work-tabs a {
+    color: #ffffff;
+    text-decoration: none;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(17px, 1.35vw, 25px);
+    line-height: 1;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.work-tabs a:hover {
+    transform: scale(1.10);
+}
+
+.work-tabs a:nth-child(1):hover {
+    color: #bd0003 !important;
+}
+
+.work-tabs a:nth-child(2):hover {
+    color: #39A9FF !important;
+}
+
+.work-tabs a:nth-child(3):hover {
+    color: #9442f1 !important;
+}
+
+.work-tabs a:nth-child(4):hover {
+    color: #ade44e !important;
+}
+
+.work-tabs a:nth-child(5):hover {
+    color: #ea3359 !important;
+}
+
+
+/* ========================================
+   MAIN WORK PANEL
+   ======================================== */
+
+.work-content {
+    background: #eeeeee;
+    color: #111111;
+    padding: 18px 40px;
+}
+
+
+/* ========================================
+   WORK ROWS
+   ======================================== */
+
+.work-row {
+    min-height: 145px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    padding: 22px 0;
+    border-bottom: 2px solid #bdbdbd;
+}
+
+.work-row:last-child {
+    border-bottom: none;
+}
+
+
+/* ========================================
+   LEFT SIDE
+   ======================================== */
+
+.work-row-left {
+    width: 48%;
+}
+
+.work-row-left h2 {
+    margin: 0 0 14px;
+    color: #111111;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(32px, 2.7vw, 52px);
+    line-height: 1;
+}
+
+
+/* ========================================
+   EXPERIENCE LABEL
+   ======================================== */
+
+.work-experience {
+    display: inline-block;
+    padding: 7px 12px;
+    color: #ffffff;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(17px, 1.3vw, 24px);
+    line-height: 1;
+}
+
+
+/* ========================================
+   EXACT CATEGORY COLORS
+   ======================================== */
+
+.red {
+    background: #bd0003;
+}
+
+.blue {
+    background: #39A9FF;
+}
+
+.purple {
+    background: #9442f1;
+}
+
+.green {
+    background: #ade44e;
+}
+
+.pink {
+    background: #ea3359;
+}
+
+
+/* ========================================
+   RIGHT SIDE
+   ======================================== */
+
+.work-row-right {
+    width: 52%;
+    color: #111111;
+    text-align: right;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.15vw, 21px);
+    line-height: 1.55;
+}
+
+.blue-text {
+    color: #39A9FF;
+}
+
+.purple-text {
+    color: #9442f1;
+}
+
+.green-text {
+    color: #ade44e;
+}
+
+.pink-text {
+    color: #ea3359;
+}
+
+
+/* ========================================
+   MOBILE
+   ======================================== */
+
+@media (max-width: 700px) {
+
+    .work-page {
+        padding: 25px 20px 50px;
+    }
+
+    .work-tabs {
+        justify-content: flex-start;
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+
+    .work-content {
+        padding: 15px 20px;
+    }
+
+    .work-row {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 20px;
+    }
+
+    .work-row-left,
+    .work-row-right {
+        width: 100%;
+    }
+
+    .work-row-right {
+        text-align: left;
+    }
+
+}
+/* WORK TABS — LEFT ALIGN */
+
+.work-tabs {
+    justify-content: flex-start !important;
+    gap: 55px !important;
+}
+/* WORK TABS — STAY VISIBLE WHILE SCROLLING */
+
+.work-tabs {
+    position: sticky;
+    top: 75px;
+    z-index: 900;
+    background: #303140;
+    padding-top: 15px;
+    padding-bottom: 15px;
+margin-top: 10px;
+}
+/* HOME VIDEO — SHOW FULL VIDEO */
+
+.section-4-final .portfolio-video {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+/* CATEGORY PAGE TABS */
+
+.leadership-page .work-tabs a {
+    text-decoration: none !important;
+    border: none;
+    outline: none;
+}
+
+.leadership-page .work-tabs a:visited,
+.leadership-page .work-tabs a:active {
+    text-decoration: none !important;
+}
+
+.leadership-page .work-tabs a:focus {
+    outline: none;
+}
+/* ========================================
+   LEADERSHIP PAGE — SIZE CONTROL
+   ======================================== */
+
+.leadership-page {
+    background: #ffffff;
+    color: #111111;
+}
+
+
+/* HERO */
+
+.leadership-hero {
+    position: relative;
+    width: 100%;
+    height: 420px;
+    overflow: hidden;
+}
+
+.leadership-hero-image {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.leadership-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.leadership-hero-content {
+    position: absolute;
+    left: 7%;
+    bottom: 45px;
+    z-index: 5;
+}
+
+.leadership-hero-content span {
+    display: inline-block;
+    background: #bd0003;
+    color: #ffffff;
+    padding: 8px 18px;
+    font-family: "Solano Gothic Bold";
+    font-size: 25px;
+    line-height: 1;
+    margin-bottom: 18px;
+}
+
+.leadership-hero-content h1 {
+    margin: 0;
+    color: #ffffff;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(48px, 4.2vw, 82px);
+    line-height: .9;
+    letter-spacing: 0;
+}
+
+
+/* 3 × 3 GRID */
+
+.leadership-grid {
+    width: 92%;
+    max-width: 1600px;
+    margin: 45px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.leadership-card {
+    aspect-ratio: 1 / 0.92;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 35px 45px;
+}
+
+
+.leadership-card.dark {
+    background: #303140;
+    color: #ffffff;
+}
+
+.leadership-card.orange {
+    background: #f9a817;
+    color: #111111;
+}
+
+
+.leadership-icon {
+    width: 90px;
+    height: 90px;
+    margin-bottom: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.leadership-icon img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.leadership-card p {
+    margin: 0;
+    max-width: 390px;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(16px, 1.15vw, 21px);
+    line-height: 1.35;
+}
+
+
+/* NEXT */
+
+.category-navigation {
+    width: 92%;
+    max-width: 1600px;
+    margin: 55px auto 70px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.next-category {
+    color: #555555;
+    text-decoration: none;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.next-category span {
+    font-family: "Solano Gothic Semibold";
+    font-size: 22px;
+}
+
+.next-category strong {
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(28px, 2.2vw, 42px);
+    font-weight: normal;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .leadership-hero {
+        height: 360px;
+    }
+
+    .leadership-hero-content {
+        left: 25px;
+        bottom: 30px;
+    }
+
+    .leadership-grid {
+        grid-template-columns: 1fr;
+        width: 100%;
+    }
+
+    .leadership-card {
+        aspect-ratio: auto;
+        min-height: 300px;
+        padding: 35px 25px;
+    }
+
+}
+/* LEADERSHIP — REMOVE SPACE ABOVE HERO */
+
+.leadership-page {
+    padding-top: 0 !important;
+}
+
+.leadership-page .leadership-hero {
+    margin-top: 0 !important;
+}
+/* LEADERSHIP — REMOVE GAP BETWEEN TABS AND HERO */
+
+.leadership-page .work-tabs {
+    margin-bottom: 0 !important;
+}
+/* LEADERSHIP HERO — 1920x1080 IMAGE */
+
+.leadership-page .leadership-hero {
+    height: 500px !important;
+    overflow: hidden !important;
+}
+
+.leadership-page .leadership-hero-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 20% !important;
+}
+/* LEADERSHIP GRID — REDUCE BOX HEIGHT */
+
+.leadership-card {
+    aspect-ratio: auto !important;
+    min-height: 260px !important;
+    height: 260px !important;
+}
+/* LEADERSHIP BOXES — HOVER EFFECT */
+
+.leadership-card {
+    position: relative;
+    z-index: 1;
+    transition: transform 0.35s ease, background-color 0.35s ease;
+}
+
+.leadership-card:hover {
+    transform: scale(1.05);
+    z-index: 10;
+}
+
+/* Dark boxes */
+.leadership-card.dark:hover {
+    background-color: #bd0003;
+    color: #ffffff;
+}
+
+/* Orange boxes */
+.leadership-card.orange:hover {
+    background-color: #459bf8;
+    color: #ffffff;
+}
+/* ========================================
+   GLOBAL PORTFOLIO — PAGE LOAD EFFECT
+   ======================================== */
+
+body {
+    animation: portfolioPageIn 0.8s ease-out both;
+}
+
+@keyframes portfolioPageIn {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ========================================
+   EDITORIAL & MAGAZINE PAGE
+   ======================================== */
+
+.editorial-page {
+    background: #ffffff;
+    color: #111111;
+}
+
+/* HERO */
+
+.editorial-hero {
+    width: 100%;
+    height: 490px;
+    background: #39A9FF;
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    padding: 0 6% 45px;
+}
+
+.editorial-hero-content {
+    width: 100%;
+    color: #ffffff;
+}
+
+.editorial-hero-content h1 {
+    margin: 0 0 22px;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 5vw, 95px);
+    line-height: .9;
+}
+
+.editorial-hero-content p {
+    max-width: 1550px;
+    margin: 0;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.15vw, 21px);
+    line-height: 1.35;
+}
+
+
+/* EDITORIAL PROCESS */
+
+.editorial-process {
+    width: 100%;
+    min-height: 570px;
+    padding: 70px 7% 65px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 12px;
+    row-gap: 12px;
+    align-items: center;
+    position: relative;
+}
+
+.editorial-process-item {
+    text-align: center;
+    padding: 10px 25px;
+}
+
+.editorial-process-item:nth-child(4) {
+    grid-column: 1 / 2;
+    margin-left: 50%;
+}
+
+.editorial-process-item:nth-child(5) {
+    grid-column: 2 / 3;
+}
+
+.editorial-process-item h2 {
+    margin: 0 0 22px;
+    color: #39A9FF;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(28px, 2.1vw, 42px);
+    line-height: 1;
+}
+
+.editorial-process-item p {
+    margin: 0 auto;
+    max-width: 390px;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.05vw, 20px);
+    line-height: 1.45;
+}
+
+
+/* VIDEO */
+
+.editorial-video-section {
+    background: #303140;
+    padding: 30px 6%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.editorial-video-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 1440px;
+    overflow: hidden;
+}
+
+.editorial-video-thumbnail {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.editorial-portfolio-video {
+    display: none;
+    width: 100%;
+    height: auto;
+}
+
+.editorial-video-play-button {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 110px;
+    height: 110px;
+    border: none;
+    border-radius: 50%;
+    background: #ffffff;
+    color: #111111;
+    font-size: 42px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.editorial-video-play-button:hover {
+    transform: translate(-50%, -50%) scale(1.12);
+}
+
+
+/* PREVIOUS / NEXT */
+
+.editorial-navigation {
+    width: 100%;
+    padding: 45px 6% 55px;
+    margin: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background: #ffffff;
+}
+
+.editorial-navigation .previous-category,
+.editorial-navigation .next-category {
+    color: #555555;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.editorial-navigation .previous-category {
+    text-align: left;
+    align-items: flex-start;
+}
+
+.editorial-navigation .next-category {
+    text-align: right;
+    align-items: flex-end;
+}
+
+.editorial-navigation span {
+    font-family: "Solano Gothic Semibold";
+    font-size: 22px;
+}
+
+.editorial-navigation strong {
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(28px, 2.2vw, 42px);
+    font-weight: normal;
+    line-height: 1;
+}
+
+.editorial-navigation .previous-category:hover,
+.editorial-navigation .next-category:hover {
+    color: #39A9FF;
+    transform: scale(1.04);
+}
+
+
+/* MOBILE */
+
+@media (max-width: 700px) {
+
+    .editorial-hero {
+        height: 420px;
+        padding: 0 25px 35px;
+    }
+
+    .editorial-process {
+        grid-template-columns: 1fr;
+        padding: 55px 25px;
+    }
+
+    .editorial-process-item:nth-child(4) {
+        grid-column: auto;
+        margin-left: 0;
+    }
+
+    .editorial-process-item:nth-child(5) {
+        grid-column: auto;
+    }
+
+    .editorial-navigation {
+        padding: 35px 25px 45px;
+        gap: 30px;
+    }
+
+}
+/* EDITORIAL — REMOVE SPACE ABOVE BLUE HERO */
+
+.editorial-page .work-tabs {
+    margin-bottom: 0 !important;
+}
+
+.editorial-page {
+    padding-top: 0 !important;
+}
+/* ========================================
+   EDITORIAL — MOVING DECORATIVE CIRCLES
+   ======================================== */
+
+.editorial-process {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Base circle */
+
+.editorial-circle {
+    position: absolute;
+    border-radius: 50%;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* RED */
+
+.circle-red-large {
+    width: 90px;
+    height: 90px;
+    background: #ea3359;
+    left: -35px;
+    top: 60px;
+    animation: editorialCircleMove 4s ease-in-out infinite;
+}
+
+.circle-red-small {
+    width: 26px;
+    height: 26px;
+    background: #ea3359;
+    left: 55px;
+    top: 145px;
+    animation: editorialCircleMoveReverse 3.5s ease-in-out infinite;
+}
+
+/* GREEN */
+
+.circle-green-large {
+    width: 70px;
+    height: 70px;
+    background: #ade44e;
+    left: 8%;
+    bottom: 70px;
+    animation: editorialCircleMoveReverse 4.5s ease-in-out infinite;
+}
+
+.circle-green-small {
+    width: 30px;
+    height: 30px;
+    background: #ade44e;
+    left: 6%;
+    bottom: 25px;
+    animation: editorialCircleMove 3.8s ease-in-out infinite;
+}
+
+.circle-green-small-2 {
+    width: 30px;
+    height: 30px;
+    background: #ade44e;
+    left: 11%;
+    bottom: 35px;
+    animation: editorialCircleMoveReverse 4.2s ease-in-out infinite;
+}
+
+/* ORANGE */
+
+.circle-orange-large {
+    width: 120px;
+    height: 120px;
+    background: #f9a817;
+    right: -15px;
+    bottom: 100px;
+    animation: editorialCircleMoveReverse 4.5s ease-in-out infinite;
+}
+
+.circle-orange-small {
+    width: 45px;
+    height: 45px;
+    background: #f9a817;
+    right: 65px;
+    bottom: 30px;
+    animation: editorialCircleMove 3.8s ease-in-out infinite;
+}
+
+
+/* GENTLE LEFT / RIGHT MOVEMENT */
+
+@keyframes editorialCircleMove {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(18px);
+    }
+
+}
+
+@keyframes editorialCircleMoveReverse {
+
+    0%, 100% {
+        transform: translateX(0);
+    }
+
+    50% {
+        transform: translateX(-18px);
+    }
+
+}
+/* EDITORIAL — CENTER BOTTOM TWO ITEMS */
+
+.editorial-process {
+    grid-template-columns: repeat(6, 1fr) !important;
+}
+
+/* TOP THREE */
+
+.editorial-process > .editorial-process-item:nth-child(8) {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 !important;
+}
+
+.editorial-process > .editorial-process-item:nth-child(9) {
+    grid-column: 3 / 5 !important;
+    grid-row: 1 !important;
+}
+
+.editorial-process > .editorial-process-item:nth-child(10) {
+    grid-column: 5 / 7 !important;
+    grid-row: 1 !important;
+}
+
+/* BOTTOM TWO */
+
+.editorial-process > .editorial-process-item:nth-child(11) {
+    grid-column: 2 / 4 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    width: auto !important;
+}
+
+.editorial-process > .editorial-process-item:nth-child(12) {
+    grid-column: 4 / 6 !important;
+    grid-row: 2 !important;
+    margin: 0 !important;
+    width: auto !important;
+}
+/* EDITORIAL HERO — WHITE STRIP TOP RIGHT */
+
+.editorial-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.editorial-hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 8%;
+    height: 120px;
+    background: #ffffff;
+    z-index: 5;
+}
+/* EDITORIAL PROCESS — BOLD CAPS HEADINGS */
+
+.editorial-process-item h2 {
+    font-family: "Solano Gothic Bold" !important;
+    font-weight: 700 !important;
+    text-transform: uppercase;
+}
+/* ========================================
+   CREATIVE DIRECTION PAGE
+   ======================================== */
+
+.creative-page {
+    background: #ffffff;
+    color: #111111;
+}
+
+/* HERO */
+
+.creative-content {
+    width: 100%;
+    background: #9442f1;
+    padding: 0 6%;
+    min-height: 390px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.creative-content h1 {
+    margin: 0;
+    padding: 35px 0 12px;
+    background: #4d237f;
+    color: #ffffff;
+    font-family: "Solano Gothic stencil";
+    font-size: clamp(55px, 5vw, 95px);
+    line-height: .9;
+}
+
+.creative-content p {
+    margin: 0;
+    padding: 0 0 28px;
+    background: #4d237f;
+    color: #ffffff;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.15vw, 21px);
+    line-height: 1.35;
+}
+
+/* COVER STRIP */
+
+.creative-covers {
+    width: 100%;
+    background: #303140;
+    padding: 55px 6%;
+    overflow: hidden;
+}
+
+.creative-covers-track {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    width: max-content;
+    animation: creativeCoversMove 20s linear infinite;
+}
+
+@keyframes creativeCoversMove {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(calc(-100% + 100vw));
+    }
+}
+
+
+.creative-covers-track img {
+    display: block;
+    width: 235px;
+    height: 300px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+/* CATEGORY NAVIGATION */
+
+.creative-page .category-navigation {
+    width: 88%;
+    max-width: 1600px;
+    margin: 70px auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.creative-page .previous-category,
+.creative-page .next-category {
+    color: #555555;
+    text-decoration: none;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.creative-page .previous-category {
+    text-align: left;
+}
+
+.creative-page .next-category {
+    text-align: right;
+}
+
+.creative-page .category-navigation span {
+    font-family: "Solano Gothic Semibold";
+    font-size: 22px;
+}
+
+.creative-page .category-navigation strong {
+    font-family: "Solano Gothic Bold";
+    font-size: clamp(28px, 2.2vw, 42px);
+    font-weight: 700;
+}
+/* CREATIVE DIRECTION — REMOVE GAP BELOW TABS */
+
+.creative-page .work-tabs {
+    margin-bottom: 0 !important;
+}
+/* CREATIVE DIRECTION — CENTER FIVE POINTS */
+
+.creative-process {
+    width: 100%;
+    min-height: 520px;
+    padding: 70px 7% 65px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 55px;
+    row-gap: 55px;
+    align-items: center;
+    text-align: center;
+}
+
+.creative-process-item {
+    text-align: center;
+    padding: 10px 25px;
+}
+
+.creative-process-item h2 {
+    margin: 0 0 20px;
+    color: #9442f1;
+    font-family: "Solano Gothic Bold";
+    font-size: clamp(25px, 2vw, 38px);
+    line-height: 1;
+    text-align: center;
+}
+
+.creative-process-item p {
+    margin: 0 auto;
+    max-width: 390px;
+    color: #111111;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(15px, 1.1vw, 20px);
+    line-height: 1.45;
+    text-align: center;
+}
+
+/* CREATIVE DIRECTION — CENTER BOTTOM TWO */
+
+.creative-process {
+    grid-template-columns: repeat(6, 1fr) !important;
+}
+
+/* 1 — Creative Direction & SOPs */
+.creative-process > .creative-process-item:nth-child(4) {
+    grid-column: 1 / 3 !important;
+    grid-row: 1 !important;
+}
+
+/* 2 — On-the-Job Support */
+.creative-process > .creative-process-item:nth-child(5) {
+    grid-column: 3 / 5 !important;
+    grid-row: 1 !important;
+}
+
+/* 3 — Feedback & Quality Review */
+.creative-process > .creative-process-item:nth-child(6) {
+    grid-column: 5 / 7 !important;
+    grid-row: 1 !important;
+}
+
+/* 4 — Knowledge Sharing & Guidance */
+.creative-process > .creative-process-item:nth-child(7) {
+    grid-column: 2 / 4 !important;
+    grid-row: 2 !important;
+}
+
+/* 5 — Continuous Improvement */
+.creative-process > .creative-process-item:nth-child(8) {
+    grid-column: 4 / 6 !important;
+    grid-row: 2 !important;
+}
+/* CREATIVE DIRECTION — FULL WIDTH DARK PURPLE OVERLAY */
+
+.creative-content {
+    position: relative;
+    overflow: hidden;
+    padding-left: 6%;
+    padding-right: 6%;
+}
+
+.creative-content::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 175px;
+    background: rgba(77, 35, 127, 0.88);
+    z-index: 1;
+}
+
+.creative-content h1,
+.creative-content p {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+}
+/* CREATIVE DIRECTION HERO — WHITE BOX TOP RIGHT */
+
+.creative-content {
+    position: relative;
+    overflow: hidden;
+}
+
+.creative-content::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 8%;
+    height: 120px;
+    background: #ffffff;
+    z-index: 5;
+}
+/* CREATIVE DIRECTION — THREE SIMULTANEOUS FLOATING LINES */
+
+.creative-process {
+    position: relative;
+    overflow: hidden;
+}
+
+.creative-floating-line {
+    position: absolute;
+    width: 220px;
+    height: 3px;
+    background: #9442f1;
+    opacity: 0.35;
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* TOP — LEFT TO RIGHT */
+.creative-line-top {
+    top: 12%;
+    left: -220px;
+    animation: lineTop 5s linear infinite;
+}
+
+@keyframes lineTop {
+    0% {
+        left: -220px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.35;
+    }
+
+    90% {
+        left: 100%;
+        opacity: 0.35;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0.35;
+    }
+}
+
+/* MIDDLE — RIGHT TO LEFT */
+.creative-line-middle {
+    top: 50%;
+    right: -220px;
+    animation: lineMiddle 5s linear infinite;
+}
+
+@keyframes lineMiddle {
+    0% {
+        right: -220px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.35;
+    }
+
+    90% {
+        right: 100%;
+        opacity: 0.35;
+    }
+
+    100% {
+        right: 100%;
+        opacity: 0.35;
+    }
+}
+
+/* BOTTOM — LEFT TO RIGHT */
+.creative-line-bottom {
+    top: 88%;
+    left: -220px;
+    right: auto;
+    animation: lineBottom 5s linear infinite;
+}
+
+@keyframes lineBottom {
+    0% {
+        left: -220px;
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 0.35;
+    }
+
+    90% {
+        left: 100%;
+        opacity: 0.35;
+    }
+
+    100% {
+        left: 100%;
+        opacity: 0.35;
+    }
+}
+/* BRAND & COMMERCIAL — LOGO SECTION */
+
+.brand-logo-section {
+    background: #ade44e;
+    padding: 55px 6%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.brand-logo-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 45px;
+    min-height: 85px;
+}
+
+.brand-logo-row img {
+    display: block;
+    width: auto;
+    max-width: 190px;
+    max-height: 75px;
+    object-fit: contain;
+}
+/* BRAND & COMMERCIAL — HERO WHITE STRIP */
+
+.brand-hero {
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 8%;
+    width: 8%;
+    height: 160px;
+    background: #ffffff;
+    z-index: 5;
+}
+/* BRAND & COMMERCIAL — HERO GREEN BACKGROUND */
+
+.brand-page {
+    background: #eeeeee;
+}
+
+.brand-hero {
+    position: relative;
+    width: 100%;
+    min-height: 520px;
+    background: #ade44e;
+    overflow: hidden;
+}
+/* BRAND & COMMERCIAL — REMOVE HERO TOP GAP */
+
+.brand-page .work-tabs {
+    margin-bottom: 0 !important;
+}
+
+.brand-page {
+    padding-top: 0 !important;
+}
+
+.brand-page .brand-hero {
+    margin-top: 0 !important;
+}
+/* BRAND & COMMERCIAL — LOGO SIZING */
+
+.brand-logo-wall {
+    padding-top: 55px;
+}
+
+.brand-logo-row {
+    min-height: 75px;
+    gap: 75px;
+}
+
+.brand-logo-row img {
+    max-width: 145px;
+    max-height: 55px;
+}
+/* BRAND & COMMERCIAL — LOGO HOVER EFFECT */
+
+.brand-logo-row img {
+    transition: transform 0.35s ease, filter 0.35s ease;
+    cursor: pointer;
+}
+
+.brand-logo-row img:hover {
+    transform: scale(1.18);
+    filter: drop-shadow(0 0 8px #f3f4f5);
+}
+.brand-hero-title h1 {
+    margin: 0;
+    color: #111111;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 5vw, 95px);
+    line-height: .9;
+    letter-spacing: 0;
+}
+/* BRAND HERO — HEADLINE POSITION */
+
+.brand-hero-title {
+    position: absolute;
+    left: 6% !important;
+    bottom: 45px;
+    right: auto !important;
+    width: auto !important;
+    z-index: 6;
+    text-align: left !important;
+}
+
+.brand-hero-title h1 {
+    margin: 0 !important;
+    padding: 0 !important;
+    color: #111111;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 5vw, 95px);
+    line-height: .9;
+    text-align: left !important;
+}
+/* BRAND & COMMERCIAL — SESSION 2 */
+
+.brand-session-2 {
+    width: 100%;
+    min-height: 650px;
+    padding: 80px 6%;
+    background: #eeeeee;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr 1fr;
+    column-gap: 60px;
+    align-items: center;
+}
+
+/* LEFT TEXT */
+
+.brand-session-2-text {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+}
+
+.brand-session-2-item h2 {
+    margin: 0 0 12px;
+    color: #111111;
+    font-family: "Solano Gothic Bold";
+    font-size: clamp(25px, 2vw, 38px);
+    line-height: 1;
+}
+
+.brand-session-2-item p {
+    margin: 0;
+    color: #111111;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(16px, 1.15vw, 21px);
+    line-height: 1.35;
+}
+
+/* MIDDLE IMAGE */
+
+.brand-session-2-image {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.brand-session-2-image img {
+    display: block;
+    width: 100%;
+    max-width: 950px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* RIGHT WORDS */
+
+.brand-session-2-words {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.brand-session-2-words span {
+    color: #111111;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(45px, 5vw, 90px);
+    line-height: .85;
+}
+/* BRAND SESSION 2 — EQUAL HEIGHT */
+
+.brand-session-2 {
+    min-height: 650px;
+    align-items: stretch;
+}
+
+.brand-session-2-text,
+.brand-session-2-image,
+.brand-session-2-words {
+    height: 100%;
+}
+/* SESSION 2 — ENLARGE MIDDLE IMAGE */
+
+.brand-session-2-image img {
+    width: 120%;
+    max-width: none;
+}
+/* SESSION 2 — RIGHT WORD HOVER EFFECT */
+
+.brand-session-2-words span {
+    display: block;
+    transition: transform 0.35s ease, color 0.35s ease;
+    transform-origin: left center;
+    cursor: pointer;
+}
+
+.brand-session-2-words span:hover {
+    transform: scale(1.15);
+}
+
+/* BEAUTY — PINK */
+.brand-session-2-words span:nth-child(1):hover {
+    color: #ea3359;
+}
+
+/* FITNESS — RED */
+.brand-session-2-words span:nth-child(2):hover {
+    color: #bd0003;
+}
+
+/* FOOD — ORANGE */
+.brand-session-2-words span:nth-child(3):hover {
+    color: #f9a817;
+}
+
+/* HEALTH — PURPLE */
+.brand-session-2-words span:nth-child(4):hover {
+    color: #9442f1;
+}
+
+/* HOME — BLUE */
+.brand-session-2-words span:nth-child(5):hover {
+    color: #39A9FF;
+}
+
+/* TOOLS — GREEN */
+.brand-session-2-words span:nth-child(6):hover {
+    color: #ade44e;
+}
+.brand-session-2-image {
+    position: relative;
+    z-index: 2;
+}
+
+.brand-session-2-color-bar {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+
+    width: 100vw;
+    height: 60px;
+
+    background: #41d2d9;
+    mix-blend-mode: multiply;
+
+    z-index: 3;
+    pointer-events: none;
+}
+/* BRAND & COMMERCIAL — SESSION 3 / STRIP 1 */
+
+.brand-session-3 {
+    width: 100%;
+    background: #303140;
+    padding: 70px 6%;
+}
+
+.brand-strip-1 {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 280px;
+    align-items: center;
+    gap: 45px;
+}
+
+/* STRIP IMAGES */
+
+.brand-strip-images {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.brand-strip-images img {
+    display: block;
+    height: 280px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+}
+
+.brand-strip-images img:hover {
+    transform: scale(1.08);
+    z-index: 5;
+}
+
+/* STATS */
+
+.brand-strip-stats {
+    display: flex;
+    flex-direction: column;
+    gap: 45px;
+    text-align: left;
+}
+
+.brand-strip-stats > div {
+    cursor: pointer;
+}
+
+.brand-strip-stats strong {
+    display: block;
+    color: #ffffff;
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(55px, 5vw, 90px);
+    line-height: .85;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.brand-strip-stats span {
+    display: block;
+    color: #ffffff;
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(18px, 1.4vw, 26px);
+    line-height: 1;
+    margin-top: 8px;
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+/* 30+ BRANDS — PINK */
+
+.brand-strip-stats > div:first-child:hover strong,
+.brand-strip-stats > div:first-child:hover span {
+    color: #ea3359;
+    transform: scale(1.12);
+    transform-origin: left center;
+}
+
+/* 100+ CATALOGUE MAGAZINES — ORANGE */
+
+.brand-strip-stats > div:last-child:hover strong,
+.brand-strip-stats > div:last-child:hover span {
+    color: #f9a817;
+    transform: scale(1.12);
+    transform-origin: left center;
+}
+
+/* SESSION 3 — STATS HOVER */
+
+.brand-strip-stats strong,
+.brand-strip-stats span {
+    transition: transform 0.35s ease, color 0.35s ease;
+}
+
+.brand-strip-stats > div {
+    cursor: pointer;
+}
+
+.brand-strip-stats > div:hover strong,
+.brand-strip-stats > div:hover span {
+    transform: scale(1.12);
+    display: inline-block;
+}
+
+/* 30+ BRANDS — PINK */
+
+.brand-strip-stats > div:first-child:hover strong,
+.brand-strip-stats > div:first-child:hover span {
+    color: #ea3359;
+}
+
+/* 100+ CATALOGUE MAGAZINES — ORANGE */
+
+.brand-strip-stats > div:last-child:hover strong,
+.brand-strip-stats > div:last-child:hover span {
+    color: #f9a817;
+}
+/* BRAND & COMMERCIAL — SESSION 3 / STRIP 2 */
+
+.brand-strip-2 {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 30px;
+}
+
+.brand-strip-2 img {
+    display: block;
+    height: 280px;
+    width: auto;
+    object-fit: contain;
+    flex-shrink: 0;
+    transition: transform 0.35s ease;
+}
+
+.brand-strip-2 img:hover {
+    transform: scale(1.08);
+    z-index: 5;
+}
+/* SESSION 3 — STRIP 3 */
+
+.brand-strip-3 {
+    display: flex;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.brand-strip-3 img {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    transition: transform 0.35s ease;
+}
+
+.brand-strip-3 img:hover {
+    transform: scale(1.05);
+}
+/* SESSION 3 — RIGHT EDGE SEMI-CIRCLE */
+
+.brand-session-3 {
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-edge-circle {
+    position: absolute;
+    right: -250px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 360px;
+    height: 650px;
+    border-radius: 50%;
+    background: #39A9FF;
+    z-index: 20;
+    pointer-events: none;
+    animation: edgeCircleColor 8s infinite;
+}
+
+@keyframes edgeCircleColor {
+    0% {
+        background: #39A9FF;
+    }
+
+    25% {
+        background: #ea3359;
+    }
+
+    50% {
+        background: #ade44e;
+    }
+
+    75% {
+        background: #bd0003;
+    }
+
+    100% {
+        background: #39A9FF;
+    }
+}
+/* BRAND & COMMERCIAL — BOTTOM NAVIGATION */
+
+.brand-bottom-nav {
+    width: 100%;
+    min-height: 300px;
+    margin: 0;
+    padding: 65px 7% 70px;
+    background: #eeeeee;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.brand-bottom-nav .previous-category,
+.brand-bottom-nav .next-category {
+    color: #555555;
+    text-decoration: none;
+
+    display: flex;
+    flex-direction: column;
+    gap: 28px;
+}
+
+.brand-bottom-nav .previous-category {
+    text-align: left;
+}
+
+.brand-bottom-nav .next-category {
+    text-align: right;
+}
+
+.brand-bottom-nav span {
+    font-family: "Solano Gothic Semibold";
+    font-size: clamp(24px, 2vw, 38px);
+    line-height: 1;
+}
+
+.brand-bottom-nav strong {
+    font-family: "Solano Gothic Stencil";
+    font-size: clamp(38px, 4vw, 70px);
+    font-weight: normal;
+    line-height: .9;
+}
+
+.brand-bottom-nav a {
+    transition: transform .35s ease, color .35s ease;
+}
+
+.brand-bottom-nav .previous-category:hover {
+    color: #9442f1;
+    transform: translateX(8px);
+}
+
+.brand-bottom-nav .next-category:hover {
+    color: #ea3359;
+    transform: translateX(-8px);
+}
+/* BRAND PAGE — SNAP BY MAIN SESSION */
+
+html:has(.brand-page) {
+    scroll-snap-type: none;
+    scroll-behavior: smooth;
+}
+
+.brand-page .brand-hero,
+.brand-page .brand-session-2,
+.brand-page .brand-session-3,
+.brand-page .brand-bottom-nav {
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+}
+/* WORK TAB LINKS — MAKE THEM CLICKABLE */
+.work-page .work-tabs {
+    position: relative;
+    z-index: 1000;
+}
+
+.work-page .work-tabs a {
+    position: relative;
+    z-index: 1001;
+    pointer-events: auto;
+    cursor: pointer;
+}
+/* Remove underline from Leadership row link */
+.work-row,
+.work-row:hover,
+.work-row:focus,
+.work-row:active,
+.work-row:visited {
+    text-decoration: none !important;
+}
+/* KEEP ALL WORK ROWS FULL WIDTH */
+.work-content > .work-row {
+    grid-column: 1 / -1;
+    width: 100%;
+    display: flex;
+    text-decoration: none !important;
+}
+/* EXTRA WHITE SPACE ABOVE LEADERSHIP */
+.work-content > .work-row:first-child {
+    margin-top: 0px;
+}
+/* WORK LANDING — KEEP CATEGORY TABS VISIBLE */
+.work-page .work-tabs {
+    position: relative;
+    top: auto;
+    z-index: 20;
+    margin-top: 0;
+}
+.work-page .work-tabs {
+    position: sticky;
+    top: 90px;
+    z-index: 900;
+}
+.work-page .work-tabs {
+    position: sticky;
+    top: 75px;
+    z-index: 900;
+    background: #303140;
+    padding: 15px 2%;
+    margin-bottom: 0px;
+}

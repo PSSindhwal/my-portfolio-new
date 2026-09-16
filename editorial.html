@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Editorial & Magazine — Pritam Singh</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="work-page-body">
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">PRITAM SINGH</div>
+
+        <nav>
+            <a href="index.html">ABOUT</a>
+            <a href="work.html">WORK</a>
+            <a href="contact.html">CONTACT</a>
+        </nav>
+
+    </header>
+
+
+    <!-- EDITORIAL PAGE -->
+
+    <main class="editorial-page">
+
+
+        <!-- WORK TABS -->
+
+        <nav class="work-tabs">
+
+            <a href="leadership.html">LEADERSHIP</a>
+
+            <a href="editorial.html">EDITORIAL &amp; MAGAZINE</a>
+
+            <a href="creative.html">CREATIVE DIRECTION</a>
+
+            <a href="brand.html">BRAND &amp; COMMERCIAL</a>
+
+            <a href="digital.html">DIGITAL &amp; SOCIAL</a>
+
+        </nav>
+
+
+        <!-- EDITORIAL HERO -->
+
+        <section class="editorial-hero">
+
+            <div class="editorial-hero-content">
+
+                <h1>EDITORIAL &amp; MAGAZINE</h1>
+
+                <p>
+                    I MANAGE THE COMPLETE CREATIVE AND PRODUCTION PROCESS FROM CONCEPT TO FINAL PRINT. THIS INCLUDES COMMUNICATING WITH PHOTOGRAPHERS, BRIEFING DESIGNERS, REVIEWING LAYOUTS, AND ENSURING EVERY DETAIL IS READY FOR PRODUCTION.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- EDITORIAL PROCESS -->
+
+        <section class="editorial-process">
+            <!-- DECORATIVE CIRCLES -->
+
+<div class="editorial-circle circle-red-large"></div>
+<div class="editorial-circle circle-red-small"></div>
+
+<div class="editorial-circle circle-green-large"></div>
+<div class="editorial-circle circle-green-small"></div>
+<div class="editorial-circle circle-green-small-2"></div>
+
+<div class="editorial-circle circle-orange-large"></div>
+<div class="editorial-circle circle-orange-small"></div>
+
+
+            <div class="editorial-process-item">
+
+                <h2>PHOTOGRAPHY<br>DIRECTION</h2>
+
+                <p>
+                    COMMUNICATE WITH PHOTOGRAPHERS, PROVIDE CREATIVE BRIEFS, DISCUSS THE VISUAL DIRECTION, AND ENSURE THE PHOTOGRAPHY SUPPORTS THE EDITORIAL CONCEPT.
+                </p>
+
+            </div>
+
+
+            <div class="editorial-process-item">
+
+                <h2>DESIGN<br>BRIEFING</h2>
+
+                <p>
+                    TRANSLATE EDITORIAL REQUIREMENTS INTO CLEAR BRIEFS FOR DESIGNERS, INCLUDING LAYOUT DIRECTION, TYPOGRAPHY, IMAGERY, HIERARCHY, AND OVERALL VISUAL TREATMENT.
+                </p>
+
+            </div>
+
+
+            <div class="editorial-process-item">
+
+                <h2>PRE-PRESS &amp;<br>PROOFING</h2>
+
+                <p>
+                    CHECK FINAL ARTWORK AND EPSON PROOFS BEFORE GOING TO PRINT. REVIEWING COLOUR, IMAGERY, TYPOGRAPHY, ALIGNMENT, IMAGE QUALITY, AND OTHER CRITICAL DETAILS.
+                </p>
+
+            </div>
+
+
+            <div class="editorial-process-item">
+
+                <h2>PRINT CONTROL</h2>
+
+                <p>
+                    COORDINATE AND MONITOR THE NECESSARY PRODUCTION STEPS TO ENSURE THE FINAL PRINTED PIECE ACCURATELY REFLECTS THE APPROVED DESIGN.
+                </p>
+
+            </div>
+
+
+            <div class="editorial-process-item">
+
+                <h2>END-TO-END DELIVERY</h2>
+
+                <p>
+                    TAKE OWNERSHIP FROM INITIAL CONCEPT AND PHOTOGRAPHY THROUGH DESIGN, REVIEW, PROOFING, PRE-PRESS, AND FINAL PRINT PRODUCTION.
+                </p>
+
+            </div>
+
+
+        </section>
+
+
+        <!-- VIDEO -->
+
+        <section class="editorial-video-section">
+
+            <div class="editorial-video-wrapper">
+
+                <img
+                    src="images/Videothumbnail.jpg"
+                    alt="Video thumbnail"
+                    class="editorial-video-thumbnail"
+                >
+
+                <video
+                    class="editorial-portfolio-video"
+                    src="videos/Final comp.mp4"
+                    controls>
+                </video>
+
+                <button
+                    class="editorial-video-play-button"
+                    aria-label="Play video">
+                    ▶
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- PREVIOUS / NEXT -->
+
+        <section class="category-navigation editorial-navigation">
+
+
+            <a href="leadership.html" class="previous-category">
+
+                <span>PREVIOUS</span>
+
+                <strong>LEADERSHIP &amp; TEAM MANAGEMENT</strong>
+
+            </a>
+
+
+            <a href="creative.html" class="next-category">
+
+                <span>NEXT</span>
+
+                <strong>CREATIVE DIRECTION</strong>
+
+            </a>
+
+
+        </section>
+
+
+    </main>
+
+
+    <!-- VIDEO SCRIPT -->
+
+    <script>
+
+        const editorialPlayButton =
+            document.querySelector('.editorial-video-play-button');
+
+        const editorialThumbnail =
+            document.querySelector('.editorial-video-thumbnail');
+
+        const editorialVideo =
+            document.querySelector('.editorial-portfolio-video');
+
+
+        editorialPlayButton.addEventListener('click', () => {
+
+            editorialThumbnail.style.display = 'none';
+
+            editorialPlayButton.style.display = 'none';
+
+            editorialVideo.style.display = 'block';
+
+            editorialVideo.play();
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>

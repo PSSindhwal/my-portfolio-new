@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Pritam Singh — Contact</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* CONTACT PAGE */
+
+        .contact-page {
+            min-height: calc(100vh - 100px);
+            padding: 120px 60px;
+            background: #303140;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+        }
+
+        .contact-details {
+    margin-top: 150px;
+    text-align: center;
+    font-weight: 700;
+}
+
+
+        /* CONTACT HEADING */
+
+        .contact-page h1 {
+            margin: 0 0 20px;
+
+            font-size: 52px;
+            line-height: 1.1;
+
+            color: #ffffff;
+        }
+
+
+        /* CONTACT TEXT */
+
+        .contact-page .contact-intro {
+            margin: 0 0 55px;
+
+            font-size: 16px;
+            line-height: 1.5;
+
+            color: #ffffff;
+        }
+
+
+        /* CONTACT TABS */
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+
+            gap: 45px;
+
+            width: 100%;
+            max-width: 1000px;
+        }
+
+
+        /* CV + LINKEDIN TAB */
+
+        .contact-link {
+            flex: 1;
+
+            min-height: 240px;
+
+            background: #f9a817;
+            color: #111111;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                color 0.3s ease;
+        }
+
+
+        /* TAB TEXT */
+
+        .contact-link span {
+            font-size: 38px;
+            font-weight: 700;
+        }
+
+
+        /* HOVER / CLICK EFFECT */
+
+        .contact-link:hover {
+            background: #ffffff;
+            color: #111111;
+
+            transform: scale(1.06);
+        }
+
+
+        /* LINKEDIN */
+
+        .contact-link.linkedin:hover {
+            background: #0077b5;
+            color: #ffffff;
+        }
+
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            .contact-page {
+                padding: 80px 25px;
+            }
+
+            .contact-page h1 {
+                font-size: 38px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                gap: 25px;
+            }
+
+            .contact-link {
+                min-height: 180px;
+            }
+
+            .contact-link span {
+                font-size: 30px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- HEADER -->
+
+    <header>
+
+        <div class="logo">
+            Pritam Singh
+        </div>
+
+        <nav>
+
+            <a href="index.html">
+                about
+            </a>
+
+            <a href="work.html">
+                work
+            </a>
+
+            <a href="contact.html">
+                contact
+            </a>
+
+        </nav>
+
+    </header>
+
+
+    <!-- CONTACT -->
+
+    <section class="contact-page">
+
+        <h1>
+            Let's Work Together
+        </h1>
+
+
+        <p class="contact-intro">
+            Available for freelance, remote and creative design projects.
+        </p>
+
+
+        <div class="contact-links">
+
+
+            <!-- CV / RESUME -->
+
+            <a
+                class="contact-link"
+                href="resume.pdf"
+                target="_blank"
+            >
+
+                <span>
+                    CV / RESUME
+                </span>
+
+            </a>
+
+
+            <!-- LINKEDIN -->
+
+            <a
+                class="contact-link linkedin"
+                href="https://www.linkedin.com/in/preet-sindhwal-28622b58"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+
+                <span>
+                    LINKEDIN
+                </span>
+
+            </a>
+
+
+        </div>
+                <p class="contact-details">
+            ☎ +91 85274 55521 &nbsp; | &nbsp;
+            ✉ preet.sindhwal@gmail.com
+        </p>
+
+    </section>
+
+
+</body>
+
+</html>

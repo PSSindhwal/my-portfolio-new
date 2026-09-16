@@ -942,3 +942,117 @@ body {
     color: inherit;
     text-decoration: none;
 }
+/* =========================================================
+   MOBILE DIGITAL — FINAL
+   ========================================================= */
+
+@media (max-width: 700px) {
+
+    /* -----------------------------------------
+       1. HIDE FIVE WORK TABS
+       ----------------------------------------- */
+
+    .digital-page-body .work-tabs {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------
+       2. GREEN GALLERY AREA
+       ----------------------------------------- */
+
+    .digital-page-body .digital-gallery {
+        width: 100% !important;
+        padding: 25px 15px 40px !important;
+        background: #ade44e !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       3. TWO IMAGES PER ROW
+       ----------------------------------------- */
+
+    .digital-page-body .digital-gallery-grid {
+        display: grid !important;
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        gap: 12px !important;
+        width: 100% !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       4. IMAGE BOXES
+       ----------------------------------------- */
+
+    .digital-page-body .digital-gallery-item {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        aspect-ratio: auto !important;
+        min-width: 0 !important;
+        overflow: hidden !important;
+        position: relative !important;
+        background: #ffffff !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       5. NORMAL IMAGES
+       ----------------------------------------- */
+
+    .digital-page-body .digital-gallery-item > img {
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       6. VIDEO THUMBNAILS
+       ----------------------------------------- */
+
+    .digital-page-body .digital-video-thumbnail {
+        position: relative !important;
+        display: block !important;
+        width: 100% !important;
+        height: auto !important;
+        max-width: 100% !important;
+        object-fit: contain !important;
+        margin: 0 !important;
+        box-sizing: border-box !important;
+    }
+
+
+    /* -----------------------------------------
+       7. HIDE DIGISTRIP 3C
+       ----------------------------------------- */
+
+    .digital-page-body .digital-gallery-item:nth-child(9) {
+        display: none !important;
+    }
+
+
+    /* -----------------------------------------
+       8. KEEP VIDEO BUTTON POSITIONED
+       ----------------------------------------- */
+
+    .digital-page-body .digital-video-item {
+        position: relative !important;
+    }
+
+}
+@media screen and (max-width: 700px) {
+    body.digital-page-body .work-tabs {
+        display: none !important;
+    }
+}

@@ -1056,3 +1056,7 @@ body {
         display: none !important;
     }
 }
+/* DESKTOP — MOVE SESSION 2 WORDS RIGHT */
+.brand-session-2-words {
+    margin-left: 35px !important;
+}

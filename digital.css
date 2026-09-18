@@ -1056,17 +1056,27 @@ body {
         display: none !important;
     }
 }
-/* DESKTOP — MOVE SESSION 2 WORDS RIGHT */
+/* DESKTOP — FIX SESSION 2 CATEGORY WORDS */
 @media (min-width: 701px) {
 
     .brand-session-2 {
-        grid-template-columns: 1.1fr 0.9fr 1.2fr !important;
-        column-gap: 35px !important;
+        position: relative !important;
     }
 
     .brand-session-2-words {
-        margin-left: 0 !important;
-        padding-left: 25px !important;
+        position: absolute !important;
+        right: 3% !important;
+        top: 50% !important;
+        transform: translateY(-50%) !important;
+
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+
+        width: 180px !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        z-index: 20 !important;
     }
 
 }

@@ -1056,27 +1056,16 @@ body {
         display: none !important;
     }
 }
-/* DESKTOP — FIX SESSION 2 CATEGORY WORDS */
+/* DESKTOP — STOP SESSION 2 IMAGE FROM OVERLAPPING CATEGORIES */
 @media (min-width: 701px) {
 
-    .brand-session-2 {
-        position: relative !important;
-    }
-
-    .brand-session-2-words {
-        position: absolute !important;
-        right: 3% !important;
-        top: 50% !important;
-        transform: translateY(-50%) !important;
-
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 8px !important;
-
-        width: 180px !important;
+    .brand-session-2-image img {
+        width: 100% !important;
+        max-width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important;
+        transform: none !important;
         margin: 0 !important;
-        padding: 0 !important;
-        z-index: 20 !important;
     }
 
 }

@@ -1057,6 +1057,16 @@ body {
     }
 }
 /* DESKTOP — MOVE SESSION 2 WORDS RIGHT */
-.brand-session-2-words {
-    margin-left: 35px !important;
+@media (min-width: 701px) {
+
+    .brand-session-2 {
+        grid-template-columns: 1.1fr 0.9fr 1.2fr !important;
+        column-gap: 35px !important;
+    }
+
+    .brand-session-2-words {
+        margin-left: 0 !important;
+        padding-left: 25px !important;
+    }
+
 }

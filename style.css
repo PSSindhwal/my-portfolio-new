@@ -4674,3 +4674,8 @@ html:has(.brand-page) {
     }
 
 }
+.contact-details a {
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+}

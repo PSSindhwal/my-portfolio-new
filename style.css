@@ -4679,3 +4679,11 @@ html:has(.brand-page) {
     text-decoration: none;
     cursor: pointer;
 }
+/* DESKTOP — GAP BETWEEN SESSION 2 IMAGE AND CATEGORIES */
+@media (min-width: 701px) {
+
+    .brand-session-2-words {
+        transform: translateX(80px) !important;
+    }
+
+}

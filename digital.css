@@ -1056,16 +1056,3 @@ body {
         display: none !important;
     }
 }
-/* DESKTOP — CREATE GAP BETWEEN IMAGE AND CATEGORY WORDS */
-@media (min-width: 701px) {
-
-    .brand-session-2 {
-        grid-template-columns: 1.1fr 0.9fr 1fr !important;
-        column-gap: 60px !important;
-    }
-
-    .brand-session-2-words {
-        margin-left: 40px !important;
-    }
-
-}

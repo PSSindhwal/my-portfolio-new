@@ -4730,7 +4730,7 @@ html:has(.brand-page) {
 }
 @media (max-width: 700px) {
     .hire-me-button {
-        opacity: 20 !important;
+        opacity: 0 !important;
         pointer-events: none !important;
     }
 }

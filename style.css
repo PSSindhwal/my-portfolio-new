@@ -4692,3 +4692,7 @@ html:has(.brand-page) {
     font-family: "HurmeGeometricSans1 SemiBold", sans-serif;
     font-weight: 600;
 }
+/* HOMEPAGE HERO SENTENCE — MOVE UP SLIGHTLY */
+.hero-text h2 {
+    transform: translateY(-8px);
+}

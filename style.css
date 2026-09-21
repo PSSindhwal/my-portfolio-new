@@ -4728,3 +4728,9 @@ html:has(.brand-page) {
         border-radius: 50%;
     }
 }
+@media (max-width: 700px) {
+    .hire-me-button {
+        opacity: 20 !important;
+        pointer-events: none !important;
+    }
+}

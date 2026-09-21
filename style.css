@@ -4696,88 +4696,35 @@ html:has(.brand-page) {
 .hero-text h2 {
     transform: translateY(-8px);
 }
-/* HOMEPAGE HIRE ME BUTTON */
-.hire-me-button {
-    display: inline-block;
-    width: 130px;
-    margin-top: 12px;
-    line-height: 0;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.hire-me-button img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.hire-me-button:hover {
-    transform: scale(1.08);
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
-}
-
-.hire-me-button:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 5px;
-    border-radius: 50%;
-}
-
-@media (prefers-reduced-motion: reduce) {
-    .hire-me-button {
-        transition: none;
-    }
-}
-/* ========================================
-   HOMEPAGE — FLOATING HIRE ME BUTTON
-======================================== */
-
-/* Keep name and sentence centered */
-.hero-text {
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-    pointer-events: none;
-}
-
-/* Position the button independently on the right */
-.hero-canvas > .hire-me-button {
-    position: absolute;
-    top: 50%;
-    right: 4%;
-    transform: translateY(-50%);
-    display: block;
-    width: 135px;
-    line-height: 0;
-    z-index: 100;
-    pointer-events: auto;
-    transition: transform 0.3s ease, filter 0.3s ease;
-}
-
-.hero-canvas > .hire-me-button img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-/* Hover effect */
-.hero-canvas > .hire-me-button:hover {
-    transform: translateY(-50%) scale(1.08);
-    filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
-}
-
-/* Keyboard accessibility */
-.hero-canvas > .hire-me-button:focus-visible {
-    outline: 2px solid currentColor;
-    outline-offset: 5px;
-    border-radius: 50%;
-}
-
-/* Keep the mobile layout separately controlled */
-@media (max-width: 700px) {
+/* DESKTOP — FLOATING HIRE ME BUTTON */
+@media (min-width: 701px) {
     .hero-canvas > .hire-me-button {
-        width: 90px;
+        position: fixed;
+        top: 12%;
         right: 4%;
-        top: 72%;
+        transform: translateY(-50%);
+        display: block;
+        width: 135px;
+        line-height: 0;
+        z-index: 1000;
+        pointer-events: auto;
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    .hero-canvas > .hire-me-button img {
+        display: block;
+        width: 100%;
+        height: auto;
+    }
+
+    .hero-canvas > .hire-me-button:hover {
+        transform: translateY(-50%) scale(1.08);
+        filter: drop-shadow(0 6px 10px rgba(0, 0, 0, 0.2));
+    }
+
+    .hero-canvas > .hire-me-button:focus-visible {
+        outline: 2px solid currentColor;
+        outline-offset: 5px;
+        border-radius: 50%;
     }
 }

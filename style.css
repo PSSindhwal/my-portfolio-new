@@ -4687,3 +4687,8 @@ html:has(.brand-page) {
     }
 
 }
+/* HOMEPAGE HERO SENTENCE — HURME SEMIBOLD */
+.hero-text h2 {
+    font-family: "HurmeGeometricSans1 SemiBold", sans-serif;
+    font-weight: 600;
+}

@@ -15,136 +15,166 @@
 
         .contact-page {
             min-height: calc(100vh - 100px);
-            padding: 120px 60px;
+            padding: 76px 5vw 64px;
             background: #303140;
+            color: #fff;
+        }
 
+        .contact-shell {
+            width: 100%;
+            max-width: 1500px;
+            margin: 0 auto;
+        }
+
+        .contact-heading-row {
             display: flex;
-            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            gap: 28px;
+            margin-bottom: 38px;
+        }
+
+        .contact-heading-row h1 {
+            margin: 0;
+            color: #fff;
+            font-size: clamp(36px, 4.2vw, 60px);
+            line-height: 1.05;
+            text-transform: uppercase;
+        }
+
+        .teams-link {
+            flex: 0 0 auto;
+            display: inline-flex;
             align-items: center;
             justify-content: center;
-
-            text-align: center;
+            min-height: 54px;
+            padding: 0 24px;
+            border-radius: 6px;
+            background: #6264a7;
+            color: #fff;
+            font-weight: 700;
+            text-decoration: none;
+            transition: background .2s ease, transform .2s ease;
         }
 
-        .contact-details {
-    margin-top: 150px;
-    text-align: center;
-    font-weight: 700;
-}
-
-
-        /* CONTACT HEADING */
-
-        .contact-page h1 {
-            margin: 0 0 20px;
-
-            font-size: 52px;
-            line-height: 1.1;
-
-            color: #ffffff;
+        .teams-link:hover {
+            background: #4f52a2;
+            transform: translateY(-2px);
         }
 
+        .contact-layout {
+            display: grid;
+            grid-template-columns: minmax(260px, .78fr) minmax(0, 1.22fr);
+            gap: clamp(28px, 4vw, 64px);
+            align-items: start;
+        }
 
-        /* CONTACT TEXT */
-
-        .contact-page .contact-intro {
-            margin: 0 0 55px;
-
+        .contact-intro {
+            margin: 0 0 28px;
+            color: #fff;
             font-size: 16px;
             line-height: 1.5;
-
-            color: #ffffff;
         }
-
-
-        /* CONTACT TABS */
 
         .contact-links {
-            display: flex;
-            justify-content: center;
-            align-items: stretch;
-
-            gap: 45px;
-
-            width: 100%;
-            max-width: 1000px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
         }
 
-
-        /* CV + LINKEDIN TAB */
-
         .contact-link {
-            flex: 1;
-
-            min-height: 240px;
-
+            min-height: 190px;
             background: #f9a817;
-            color: #111111;
-
+            color: #111;
             display: flex;
             align-items: center;
             justify-content: center;
-
+            padding: 18px;
+            text-align: center;
             text-decoration: none;
-
-            transition:
-                transform 0.3s ease,
-                background 0.3s ease,
-                color 0.3s ease;
+            transition: transform .3s ease, background .3s ease, color .3s ease;
         }
 
-
-        /* TAB TEXT */
-
         .contact-link span {
-            font-size: 38px;
+            font-size: clamp(20px, 2.3vw, 34px);
             font-weight: 700;
         }
 
-
-        /* HOVER / CLICK EFFECT */
-
         .contact-link:hover {
-            background: #ffffff;
-            color: #111111;
-
-            transform: scale(1.06);
+            background: #fff;
+            color: #111;
+            transform: translateY(-4px);
         }
-
-
-        /* LINKEDIN */
 
         .contact-link.linkedin:hover {
             background: #0077b5;
-            color: #ffffff;
+            color: #fff;
         }
 
+        .contact-details {
+            margin: 32px 0 0;
+            font-weight: 700;
+            line-height: 1.9;
+            overflow-wrap: anywhere;
+        }
 
-        /* MOBILE */
+        .contact-details a {
+            color: #fff;
+            text-decoration: none;
+        }
 
-        @media (max-width: 700px) {
+        .booking-panel {
+            min-width: 0;
+            overflow: hidden;
+            border-radius: 8px;
+            background: #fff;
+        }
 
-            .contact-page {
-                padding: 80px 25px;
+        #my-cal-inline-15min {
+            width: 100%;
+            min-width: 0;
+            height: 700px;
+            overflow: auto;
+        }
+
+        @media (max-width: 900px) {
+            .contact-layout {
+                grid-template-columns: 1fr;
             }
 
-            .contact-page h1 {
+            .contact-links {
+                max-width: 640px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .contact-page {
+                padding: 54px 22px 42px;
+            }
+
+            .contact-heading-row {
+                align-items: flex-start;
+                flex-direction: column;
+                gap: 20px;
+                margin-bottom: 30px;
+            }
+
+            .contact-heading-row h1 {
                 font-size: 38px;
             }
 
             .contact-links {
-                flex-direction: column;
-                gap: 25px;
+                grid-template-columns: 1fr;
+                gap: 14px;
             }
 
             .contact-link {
-                min-height: 180px;
+                min-height: 135px;
             }
 
-            .contact-link span {
-                font-size: 30px;
+            #my-cal-inline-15min {
+                height: 680px;
             }
-
         }
 
     </style>
@@ -183,59 +213,74 @@
     <!-- CONTACT -->
 
     <section class="contact-page">
+        <div class="contact-shell">
+            <div class="contact-heading-row">
+                <h1>Let's Work Together</h1>
+                <a class="teams-link" href="https://teams.live.com/meet/9384811729607?p=kkL7A6L2KGoSB2kx5j" target="_blank" rel="noopener noreferrer">Book a Meeting</a>
+            </div>
 
-        <h1>
-            Let's Work Together
-        </h1>
+            <div class="contact-layout">
+                <div class="contact-resources">
+                    <p class="contact-intro">Available for freelance, remote and creative design projects.</p>
+                    <div class="contact-links">
+                        <a class="contact-link" href="resume.pdf" target="_blank" rel="noopener noreferrer"><span>CV / RESUME</span></a>
+                        <a class="contact-link linkedin" href="https://www.linkedin.com/in/preet-sindhwal-28622b58" target="_blank" rel="noopener noreferrer"><span>LINKEDIN</span></a>
+                    </div>
+                    <p class="contact-details">
+                        <a href="tel:+918527455521">☎ +91 85274 55521</a>
+                        &nbsp; | &nbsp;
+                        <a href="mailto:preet.sindhwal@gmail.com">✉ preet.sindhwal@gmail.com</a>
+                    </p>
+                </div>
 
-
-        <p class="contact-intro">
-            Available for freelance, remote and creative design projects.
-        </p>
-
-
-        <div class="contact-links">
-
-
-            <!-- CV / RESUME -->
-
-            <a
-                class="contact-link"
-                href="resume.pdf"
-                target="_blank"
-            >
-
-                <span>
-                    CV / RESUME
-                </span>
-
-            </a>
-
-
-            <!-- LINKEDIN -->
-
-            <a
-                class="contact-link linkedin"
-                href="https://www.linkedin.com/in/preet-sindhwal-28622b58"
-                target="_blank"
-                rel="noopener noreferrer"
-            >
-
-                <span>
-                    LINKEDIN
-                </span>
-
-            </a>
-
-
+                <div class="booking-panel" aria-label="Book a 15-minute meeting">
+                    <div id="my-cal-inline-15min"></div>
+                </div>
+            </div>
         </div>
-                <p class="contact-details">
-    <a href="tel:+918527455521">☎ +91 85274 55521</a>
-    &nbsp; | &nbsp;
-    <a href="mailto:preet.sindhwal@gmail.com">✉ preet.sindhwal@gmail.com</a>
-</p>
-
     </section>
+
+    <script type="text/javascript">
+        (function (C, A, L) {
+            let p = function (a, ar) { a.q.push(ar); };
+            let d = C.document;
+            C.Cal = C.Cal || function () {
+                let cal = C.Cal;
+                let ar = arguments;
+                if (!cal.loaded) {
+                    cal.ns = {};
+                    cal.q = cal.q || [];
+                    d.head.appendChild(d.createElement("script")).src = A;
+                    cal.loaded = true;
+                }
+                if (ar[0] === L) {
+                    const api = function () { p(api, arguments); };
+                    const namespace = ar[1];
+                    api.q = api.q || [];
+                    if (typeof namespace === "string") {
+                        cal.ns[namespace] = cal.ns[namespace] || api;
+                        p(cal.ns[namespace], ar);
+                        p(cal, ["initNamespace", namespace]);
+                    } else p(cal, ar);
+                    return;
+                }
+                p(cal, ar);
+            };
+        })(window, "https://app.cal.com/embed/embed.js", "init");
+
+        Cal("init", "15min", { origin: "https://app.cal.com" });
+        Cal.ns["15min"]("inline", {
+            elementOrSelector: "#my-cal-inline-15min",
+            calLink: "preet-sindhwal-415n72/15min",
+            config: { layout: "month_view", theme: "dark" }
+        });
+        Cal.ns["15min"]("ui", {
+            theme: "dark",
+            styles: { branding: { brandColor: "#f9a817" } },
+            hideEventTypeDetails: false,
+            layout: "month_view"
+        });
+    </script>
 
 
 </body>
